@@ -42,9 +42,12 @@ public class CartoDBTestClient {
 	
 	@Test
 	public void testClientSQLInsert() throws CartoDBException {
-		CartoDBResponse<Map<String, Object>> res = cartoDBCLient.request("insert into " + Secret.EXISTING_TABLE_WITH_DATA + " (name) values ('test')");
+		CartoDBResponse<Map<String, Object>> res = cartoDBCLient.request("insert into " + Secret.EXISTING_TABLE_WITH_DATA + " (cartodb_id) values (0)");
+		assertTrue(res.getTotal_rows() > 0);
+		res = cartoDBCLient.request("delete from " + Secret.EXISTING_TABLE_WITH_DATA + " where cartodb_id=0");
 		assertTrue(res.getTotal_rows() > 0);
 	}
+	
 	
 	@Test
 	public void testIsWrite() {

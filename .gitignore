@@ -4,3 +4,4 @@
 bin
 src/test/java/com/cartodb/Secret.java
 target/
+src/main/java/cartodb.properties
