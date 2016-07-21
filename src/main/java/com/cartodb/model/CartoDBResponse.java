@@ -1,8 +1,7 @@
 package com.cartodb.model;
 
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Map;
 
 /**
  * Represents a typical CartoDB response object.
@@ -10,22 +9,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  *
  * @param <T> Type of the object represented by the sent query.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class CartoDBResponse<T> {
 	
 	private double time;
 	private int total_rows;
+	private Map<String, Map<String, String>> fields;
 	private List<T> rows;
-	/*
-	private String fields;
-	
-	public String getFields() {
-		return fields;
-	}
-	public void setFields(String fields) {
-		this.fields = fields;
-	}
-	*/
+    private List<String> notices;
 	
 	public double getTime() {
 		return time;
@@ -45,5 +35,18 @@ public class CartoDBResponse<T> {
 	public void setRows(List<T> rows) {
 		this.rows = rows;
 	}
+	public Map<String, Map<String, String>> getFields() {
+		return fields;
+	}
+	public void setFields(Map<String, Map<String, String>> fields) {
+		this.fields = fields;
+	}
 
+    public List<String> getNotices() {
+        return notices;
+    }
+
+    public void setNotices(List<String> notices) {
+        this.notices = notices;
+    }
 }
