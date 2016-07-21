@@ -4,6 +4,13 @@
 Tiny CartoDB Java client that can be instantiated as regular (public) or secured (private). Once instantiated, you can 
 send queries to CartoDB and get a JSON string as response.
 
+##Building
+In order to build a new JAR for this SDK you need to have installed [Gradle](http://gradle.org/gradle-download/) which is the building system.
+
+Once you have Gradle installed, you must run ```gradle clean``` to remove previous builds and ```gradle build``` to generate the new JAR.
+
+After the build process is finished you could find the new generated JAR in the ```gradleBuild/libs``` folder
+
 ##Usage
 
 With this library you have access to private and public tables. In order to access to public tables you do not need to be authenticated
